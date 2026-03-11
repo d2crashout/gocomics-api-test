@@ -12,23 +12,8 @@ cd backend
 pip install -r requirements.txt
 python app.py
 ```
-
-API endpoints:
-- `GET /health`
-- `GET /api/random-big-nate`
-
-### Backend logging
-
-The backend now logs each request and detailed `comics` package fetch failures.
-On Render, open your service logs while clicking **Fetch Random Comic** in the frontend.
-
-You can tune verbosity with:
-
-```bash
-LOG_LEVEL=DEBUG python app.py
-```
+API endpoint: `GET /api/random-big-nate`
 
 ## Frontend (GitHub Pages)
 
-Serve `frontend/` as a static site.
-In the UI, set and save your Render backend URL before pressing **Fetch Random Comic**.
+Serve `frontend/` as a static site and set the backend URL in `frontend/script.js`.
