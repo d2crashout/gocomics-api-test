@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Nate Comic Generator</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+      button { padding: 0.7rem 1.2rem; font-size: 1rem; cursor: pointer; }
+      input { width: min(100%, 560px); padding: 0.5rem; margin-right: 0.5rem; }
+      #comic { margin-top: 1.25rem; }
+      img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+      #status { margin-top: 0.8rem; color: #444; }
+      .backend-controls { margin: 1rem 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Random Big Nate Comic</h1>
+
+    <div class="backend-controls">
+      <label for="backend-url">Backend URL:</label><br />
+      <input id="backend-url" type="url" placeholder="https://your-render-backend.onrender.com" />
+      <button id="save-backend-url" type="button">Save Backend URL</button>
+    </div>
+
+    <button id="fetch-comic">Fetch Random Comic</button>
+    <p id="status"></p>
+
+    <section id="comic" hidden>
+      <h2 id="comic-title"></h2>
+      <a id="comic-link" target="_blank" rel="noopener noreferrer">
+        <img id="comic-image" alt="Random Big Nate comic" />
+      </a>
+      <p id="comic-date"></p>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
