@@ -4,6 +4,8 @@ const storedBackendUrl = localStorage.getItem("backendBaseUrl");
 const backendInput = document.getElementById("backend-url");
 const saveBackendButton = document.getElementById("save-backend-url");
 const checkBackendButton = document.getElementById("check-backend");
+const BACKEND_BASE_URL = window.BACKEND_BASE_URL || "https://gocomics-api-test.onrender.com";
+
 const button = document.getElementById("fetch-comic");
 const statusEl = document.getElementById("status");
 const comicSection = document.getElementById("comic");
@@ -79,5 +81,21 @@ button.addEventListener("click", async () => {
       ? `${timeoutMessage} Check backend logs and /api/debug/comics.`
       : `Could not load a comic: ${error.message}`;
     statusEl.textContent = message;
+button.addEventListener("click", async () => {
+  statusEl.textContent = "Loading a random Big Nate comic...";
+
+  try {
+    const response = await fetch(`${BACKEND_BASE_URL}/api/random-big-nate`);
+    if (!response.ok) throw new Error("Request failed");
+
+    const comic = await response.json();
+    titleEl.textContent = comic.title || "Big Nate";
+    dateEl.textContent = comic.published_date ? `Published: ${comic.published_date}` : "";
+    imageEl.src = comic.image_url;
+    linkEl.href = comic.page_url || comic.image_url;
+    comicSection.hidden = false;
+    statusEl.textContent = "";
+  } catch {
+    statusEl.textContent = "Could not load a comic. Check your backend URL and try again.";
   }
 });
