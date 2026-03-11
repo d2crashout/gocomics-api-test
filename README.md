@@ -12,7 +12,6 @@ cd backend
 pip install -r requirements.txt
 python app.py
 ```
-
 API endpoint: `GET /api/random-big-nate`
 
 ## Frontend (GitHub Pages)
