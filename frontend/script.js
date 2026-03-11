@@ -1,4 +1,4 @@
-const BACKEND_BASE_URL = window.BACKEND_BASE_URL || "https://your-render-backend.onrender.com";
+const BACKEND_BASE_URL = window.BACKEND_BASE_URL || "https://gocomics-api-test.onrender.com";
 
 const button = document.getElementById("fetch-comic");
 const statusEl = document.getElementById("status");
